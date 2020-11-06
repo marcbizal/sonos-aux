@@ -17,7 +17,17 @@
 
   $: if (deviceId) {
     mediaStream = navigator.mediaDevices.getUserMedia({
-      [kind]: { deviceId: { exact: deviceId } }
+      [kind]: {
+        autoGainControl: false,
+        channelCount: 2,
+        echoCancellation: false,
+        latency: 0,
+        noiseSuppression: false,
+        sampleRate: 48000,
+        sampleSize: 16,
+        volume: 1.0,
+        deviceId: { exact: deviceId },
+      }
     });
   }
 </script>
