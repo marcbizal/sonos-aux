@@ -1,0 +1,13 @@
+diff --git a/node_modules/node-fdkaac/lib/build/FdkaacOptions.js b/node_modules/node-fdkaac/lib/build/FdkaacOptions.js
+index e91cb74..d52ff30 100644
+--- a/node_modules/node-fdkaac/lib/build/FdkaacOptions.js
++++ b/node_modules/node-fdkaac/lib/build/FdkaacOptions.js
+@@ -223,7 +223,7 @@ class FdkaacOptions {
+         return [`--raw-rate`, value];
+     }
+     rawFormat(value) {
+-        return [`--raw-format`, `'${value}'`];
++        return [`--raw-format`, value];
+     }
+     meta(metaObj) {
+         for (const key in metaObj) {
