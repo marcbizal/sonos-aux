@@ -17,13 +17,11 @@ let chunk = 0;
 let mediaSequence = 0;
 const chunkSeconds = 2;
 
-const ipAddress = "192.168.1.69";
 const port = 8000;
 const encoderOptions = {
   bitrate: 320,
   raw: true,
   "raw-rate": 48000,
-  "raw-format": "f32",
   "gapless-mode": 2,
   "moov-before-mdat": true,
 };
