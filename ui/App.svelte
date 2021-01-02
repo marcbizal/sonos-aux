@@ -20,7 +20,7 @@ import { element } from "svelte/internal";
   const sampleRate = 48000
   const numChannels = 2
   const context = new AudioContext({ sampleRate });
-  const ws = new WebSocket('ws://192.168.1.69:8000')
+  const ws = new WebSocket('ws://localhost:8000')
 
   let data = new Int16Array(0);
 

@@ -1,16 +1,6 @@
-let max = 0
-let min = 0
-
 function* getAlternatingChannels(...channels) {
   for (let i = 0; i < channels[0].length; i++) {
     for (let channel of channels) {
-      max = Math.max(max, channel[i]);
-      min = Math.min(min, channel[i]);
-
-      if (min < -1.0 || max > +1.0) {
-        throw new Error('clipping')
-      }
-
       yield channel[i] * 32768;
     }
   }
@@ -30,13 +20,12 @@ class WebSocketProcessor extends AudioWorkletProcessor {
     super();
 
     const {
-      sampleRate = 48000,
-      channels = 2,
-      bufferLength = 2
+      frameSize = 1024,
+      framesPerChunk = 100
     } = processorOptions;
 
     this.buffer = new Int16Array(0);
-    this.bufferSize = bufferLength * (sampleRate * channels);
+    this.bufferSize = frameSize * framesPerChunk;
   }
   process(inputs) {
     const inputLeftChannel = inputs[0][0]; //inputChannel Float32Array(128)
